@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GetGoApp.Views.Menu">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
+            <StackLayout Orientation="Vertical" HeightRequest="600">
+                <Button Text="Profile" Clicked="Profile_Clicked" />
+                <Button Text="Notifications" Clicked="Notifications_Clicked" />
+                <Button Text="Loan History" Clicked="LoanHistory_Clicked" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Button Text="Home" Clicked="HomeButton_Clicked" />
+                <Button Text="Menu" Clicked="MenuButton_Clicked" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
