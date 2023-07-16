@@ -15,7 +15,7 @@ namespace GetGoApp.Views
         public Registration()
         {
             InitializeComponent();
-            webView.Source = new UrlWebViewSource { Url = "https://longsparklydart32.conveyor.cloud/Views/UserApp/SignUp.aspx" };
+            webView.Source = new UrlWebViewSource { Url = "http://172.20.16.1//GetGo/Views/UserApp/SignUp.aspx " };
         }
         private void SaveButton_Clicked(object sender, EventArgs e)
         {

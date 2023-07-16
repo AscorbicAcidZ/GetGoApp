@@ -20,7 +20,7 @@ namespace GetGoApp
         private void HomeButton_Clicked(object sender, EventArgs e)
         {
             var Name = "";
-            Navigation.PushAsync(new Views.Home(Name));
+            Navigation.PushAsync(new Views.Home.Home_Primary());
         }
 
         private void MenuButton_Clicked(object sender, EventArgs e)
