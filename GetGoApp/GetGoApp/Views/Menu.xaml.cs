@@ -20,7 +20,7 @@ namespace GetGoApp.Views
         {
 
             var Name = "";
-            Navigation.PushAsync(new Views.Home(Name));
+            Navigation.PushAsync(new Views.Home.Home_Primary());
         }
     
         private void MenuButton_Clicked(object sender, EventArgs e)
@@ -30,9 +30,9 @@ namespace GetGoApp.Views
         private void Profile_Clicked(object sender, EventArgs e)
         {
             var Name = "";
-            Navigation.PushAsync(new Profile(Name));
+            //Navigation.PushAsync(new Profile(Name));
         }
-        private void Notifications_Clicked(object sender, EventArgs e)
+        private void Notifications_Clicked(object sender, EventArgs e)  
         {
 
             Navigation.PushAsync(new Views.Notifications());
