@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GetGoApp.Login"
+             NavigationPage.HasNavigationBar="False"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="#bcf4e4"
+             xmlns:local="clr-namespace:GetGoApp.Class">
+
+    <ContentPage.Content>
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Image Grid.Row="0" Source="AppLogo.png" Aspect="AspectFit" HeightRequest="499" VerticalOptions="CenterAndExpand"></Image>
+            <Frame Grid.Row="1" Margin="0,0" BorderColor="#bcf4e4" HasShadow="True" CornerRadius="10" Padding="10">
+                <Label Text="Welcome Back! Login to continue" FontSize="24" FontAttributes="Bold" TextColor="#1C375C" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"></Label>
+            </Frame>
+
+            <Frame Grid.Row="2" Margin="0.5,0" BorderColor="#bcf4e4" HasShadow="True" CornerRadius="10" Padding="9" VerticalOptions="FillAndExpand">
+                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Frame BackgroundColor="#f2f2f2" Grid.Row="3" 
+                           Padding="15"
+                           CornerRadius="5"
+                           HeightRequest="40"
+                           HasShadow="False">
+                        <local:BorderlessEntry
+                            Placeholder="Username" 
+                            HorizontalOptions="FillAndExpand"
+                            TextColor="#333333"
+                            FontSize="16"
+                            VerticalOptions="CenterAndExpand"
+                            Margin="5,0,5,0" />
+                    </Frame>
+                    <Frame BackgroundColor="#f2f2f2" Grid.Row="4" 
+                           Padding="15"
+                           CornerRadius="5"
+                           HeightRequest="40"
+                           HasShadow="False">
+                        <local:BorderlessEntry 
+                            Placeholder="Password" IsPassword="True"
+                            HorizontalOptions="FillAndExpand"
+                            TextColor="#333333"
+                            FontSize="16"
+                            VerticalOptions="CenterAndExpand"
+                            Margin="5,0,5,0" />
+                    </Frame>
+
+                  
+                    <Label Grid.Row="5" Text="Forget Password?" FontAttributes="Bold" HorizontalOptions="End"></Label>
+                    <StackLayout Grid.Row="6" Orientation="Vertical" HorizontalOptions="CenterAndExpand">
+                        <Image Source="fingerprint.png" Aspect="AspectFit" HeightRequest="50" WidthRequest="50"></Image>
+                        <Label Text="Biometrics Login"></Label>
+                    </StackLayout>
+                  
+                    <Button Grid.Row="8" Text="Login" TextColor="White" BackgroundColor="#1C375C" CornerRadius="10" Command="{Binding LoginCommand}"></Button>
+
+                    <Label Grid.Row="9" Text="Don't have an account? Sign up here" HorizontalOptions="CenterAndExpand"></Label>
+                </Grid>
+            </Frame>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
