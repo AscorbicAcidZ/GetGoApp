@@ -12,13 +12,13 @@
         <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="20">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="100"></RowDefinition>
                 <RowDefinition Height="Auto"></RowDefinition>
             </Grid.RowDefinitions>
 
             <Image Grid.Row="0" Source="AppLogo.png" Aspect="AspectFit" HeightRequest="499" VerticalOptions="CenterAndExpand"></Image>
-            <Frame Grid.Row="1" Margin="0,0" BorderColor="#bcf4e4" HasShadow="True" CornerRadius="10" Padding="10">
-                <Label Text="Welcome Back! Login to continue" FontSize="24" FontAttributes="Bold" TextColor="#1C375C" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"></Label>
+            <Frame Grid.Row="1" Margin="0,0" BorderColor="#bcf4e4" HasShadow="True" CornerRadius="10" Padding="10"  HeightRequest="10">
+                <Label Text="Welcome Back! Login to continue" FontSize="24" FontAttributes="Bold" TextColor="#1b5b6b" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"></Label>
             </Frame>
 
             <Frame Grid.Row="2" Margin="0.5,0" BorderColor="#bcf4e4" HasShadow="True" CornerRadius="10" Padding="9" VerticalOptions="FillAndExpand">
@@ -45,7 +45,8 @@
                             TextColor="#333333"
                             FontSize="16"
                             VerticalOptions="CenterAndExpand"
-                            Margin="5,0,5,0" />
+                            Margin="5,0,5,0" 
+                             x:Name="usernameEntry"/>
                     </Frame>
                     <Frame BackgroundColor="#f2f2f2" Grid.Row="4" 
                            Padding="15"
@@ -58,19 +59,24 @@
                             TextColor="#333333"
                             FontSize="16"
                             VerticalOptions="CenterAndExpand"
-                            Margin="5,0,5,0" />
+                            Margin="5,0,5,0" 
+                              x:Name="passwordEntry" />
                     </Frame>
 
-                  
-                    <Label Grid.Row="5" Text="Forget Password?" FontAttributes="Bold" HorizontalOptions="End"></Label>
+
+                    <Label Grid.Row="5" Text="Forget Password?" FontAttributes="Bold" HorizontalOptions="End" TextColor="#1b5b6b"></Label>
                     <StackLayout Grid.Row="6" Orientation="Vertical" HorizontalOptions="CenterAndExpand">
                         <Image Source="fingerprint.png" Aspect="AspectFit" HeightRequest="50" WidthRequest="50"></Image>
-                        <Label Text="Biometrics Login"></Label>
+                        <Label TextColor="#1b5b6b" Text="Biometrics Login"></Label>
                     </StackLayout>
-                  
-                    <Button Grid.Row="8" Text="Login" TextColor="White" BackgroundColor="#1C375C" CornerRadius="10" Command="{Binding LoginCommand}"></Button>
 
-                    <Label Grid.Row="9" Text="Don't have an account? Sign up here" HorizontalOptions="CenterAndExpand"></Label>
+                    <Button Grid.Row="8" Text="Login" TextColor="White" BackgroundColor="#1b5b6b" CornerRadius="10"  Clicked="LoginButton_Clicked"></Button>
+
+                    <Label Grid.Row="9" TextColor="#1b5b6b" Text="Don't have an account? Sign up here" HorizontalOptions="CenterAndExpand">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="SignUpLabel_Tapped" />
+                        </Label.GestureRecognizers>
+                    </Label>
                 </Grid>
             </Frame>
         </Grid>
