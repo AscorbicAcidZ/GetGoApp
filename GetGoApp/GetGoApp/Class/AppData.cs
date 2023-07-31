@@ -8,6 +8,8 @@ namespace GetGoApp.Class
     {
         private static AppData _instance;
         public string Details { get; set; }
+        public string Link { get; set; }
+        public string SignupDetails { get; set; }
 
         private AppData() { }
 

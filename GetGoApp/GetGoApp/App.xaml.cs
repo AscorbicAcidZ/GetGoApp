@@ -12,7 +12,7 @@ namespace GetGoApp
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new Login());
+            MainPage = new NavigationPage(new Start());
         }
 
         protected override void OnStart()
