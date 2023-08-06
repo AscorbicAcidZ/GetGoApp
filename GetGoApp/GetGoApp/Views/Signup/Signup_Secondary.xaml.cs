@@ -1,4 +1,5 @@
 ﻿using GetGoApp.Class;
+using GetGoApp.Views.Profile;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,17 +23,17 @@ namespace GetGoApp.Views.Signup
             if (!string.IsNullOrEmpty(signupDetails))
             {
                 string[] detailsArray = signupDetails.Split('|');
-                if (detailsArray.Length >= 2)
-               {
-                    userName = detailsArray[1];
-                    phoneNumber = detailsArray[2];
-                    email = detailsArray[3];
+                if (detailsArray.Length >= 2) // Make sure there are enough elements
+                {
+                    userName = detailsArray[1].Replace(":", "=");
+                    phoneNumber = detailsArray[2].Replace(":", "=");
+                    email = detailsArray[3].Replace(":", "=");
                 }
             }
             if (!string.IsNullOrEmpty(link))
             {
-                webView.Source = new UrlWebViewSource 
-                { Url = $"{link}/Views/UserApp/Signup/Signup_Secondary.aspx?UserName={userName}&PhoneNumber={phoneNumber}&Email={email}" };
+                webView.Source = new UrlWebViewSource
+                { Url = $"{link}/Views/UserApp/Signup/Signup_Secondary.aspx?{userName}&{phoneNumber}&{email}" };
             }
 
             
@@ -43,22 +44,12 @@ namespace GetGoApp.Views.Signup
             webView.EvaluateJavaScriptAsync("SaveClick();");
             webView.Navigated += WebView_Navigated;
         }
-        private  void WebView_Navigated(object sender, WebNavigatedEventArgs e)
+        private async void WebView_Navigated(object sender, WebNavigatedEventArgs e)
         {
             // Check if the navigation was successful and the URL is not null or empty
             if (e.Result == WebNavigationResult.Success && !string.IsNullOrEmpty(e.Url))
             {
-                // Get the query string parameters from the URL
-                var uri = new Uri(e.Url);
-                var queryParameters = System.Web.HttpUtility.ParseQueryString(uri.Query);
-                var parametersDict = queryParameters.AllKeys.ToDictionary(key => key, key => queryParameters[key]);
-                // Build the SignupDetails string
-                string signupDetails = BuildSignupDetails(link, parametersDict);
-
-                // Set the SignupDetails value in the global data storage class
-                AppData.Instance.SignupDetails = signupDetails;
-
-                //await Navigation.PushAsync(new Signup_Secondary());
+                await Navigation.PushAsync(new Profile_Primary());
                 // Do something with the query string values here...
             }
         }
