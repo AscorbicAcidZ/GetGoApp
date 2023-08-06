@@ -9,6 +9,8 @@ namespace GetGoApp.Class
         private static AppData _instance;
         public string Details { get; set; }
         public string Link { get; set; }
+        public string UserId { get; set; }
+        public string UserToken { get; set; }
         public string SignupDetails { get; set; }
 
         private AppData() { }
