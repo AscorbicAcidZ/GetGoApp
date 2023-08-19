@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GetGoApp.Views.Profile.Profile_Summary">
+    <ContentPage.Content>
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="3"  BackgroundColor="#bcf4e4">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+            </Grid.RowDefinitions>
+            <WebView  Grid.Row="0" x:Name="webView" HeightRequest="700" />
+            <Button  Grid.Row="1"  Text="Confirm"  Clicked="Button_Clicked"  TextColor="White" BackgroundColor="#2B9348" CornerRadius="10"  />
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>
