@@ -1,13 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="GetGoApp.Views.Home.Home_Primary" NavigationPage.HasBackButton="False" NavigationPage.HasNavigationBar="False">
+             x:Class="GetGoApp.Views.Home.Home_Primary"
+             NavigationPage.HasBackButton="False"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#bcf4e4">
     <ContentPage.Content>
         <StackLayout>
             <WebView x:Name="webView" HeightRequest="700" />
-            <StackLayout Orientation="Horizontal" Spacing="10" HorizontalOptions="CenterAndExpand" >
-                <Button Text="Home" Clicked="HomeButton_Clicked" />
-                <Button Text="Menu" Clicked="MenuButton_Clicked" />
+            <StackLayout Orientation="Horizontal" Spacing="10"  BackgroundColor="#bcf4e4" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
+                <Image Source="home.png" HeightRequest="60" Aspect="AspectFit">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="HomeImage_Tapped" />
+                    </Image.GestureRecognizers>
+                </Image>
+
+                <Image Source="menu.png" HeightRequest="60" Aspect="AspectFit" >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="MenuImage_Tapped" />
+                    </Image.GestureRecognizers>
+                </Image>
+                <!--<Button Text="Home" Clicked="HomeButton_Clicked" />
+                <Button Text="Menu" Clicked="MenuButton_Clicked" />-->
             </StackLayout>
 
 
