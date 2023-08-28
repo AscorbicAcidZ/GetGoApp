@@ -8,13 +8,17 @@
              BackgroundColor="#bcf4e4"
              xmlns:local="clr-namespace:GetGoApp.Class">
 
+
     <ContentPage.Content>
+
         <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="20">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="100"></RowDefinition>
                 <RowDefinition Height="Auto"></RowDefinition>
             </Grid.RowDefinitions>
+
+
 
             <Image Grid.Row="0" Source="AppLogo.png" Aspect="AspectFit" HeightRequest="499" VerticalOptions="CenterAndExpand"></Image>
             <Frame Grid.Row="1" Margin="0,0" BorderColor="#bcf4e4" HasShadow="True" CornerRadius="10" Padding="10"  HeightRequest="10">
@@ -77,8 +81,18 @@
                             <TapGestureRecognizer Tapped="SignUpLabel_Tapped" />
                         </Label.GestureRecognizers>
                     </Label>
+                    <AbsoluteLayout x:Name="loadingLayout" IsVisible="false">
+                        <ActivityIndicator x:Name="loadingIndicator" 
+                           IsRunning="True" 
+                           IsVisible="True"
+                           Color="Black" 
+                           AbsoluteLayout.LayoutBounds=".5,.5, 100, 100"
+                           AbsoluteLayout.LayoutFlags="PositionProportional"/>
+                    </AbsoluteLayout>
+
                 </Grid>
             </Frame>
         </Grid>
     </ContentPage.Content>
+
 </ContentPage>

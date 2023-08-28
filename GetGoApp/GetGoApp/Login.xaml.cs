@@ -25,6 +25,7 @@ namespace GetGoApp
         }
         private async void LoginButton_Clicked(object sender, EventArgs e)
         {
+            loadingLayout.IsVisible = true;
             // Create the URL with the query string parameters
             string username = usernameEntry.Text;
             string password = passwordEntry.Text;
@@ -42,11 +43,25 @@ namespace GetGoApp
                     if (!response.IsSuccessStatusCode)
                     {
                         await DisplayAlert("Error", "Failed to connect to the server", "OK");
+                        loadingLayout.IsVisible = false;
                         return;
                     }
 
                     response.EnsureSuccessStatusCode();
 
+                    string responseContent = await response.Content.ReadAsStringAsync();
+
+                    // Check if the response content contains "Wrong pass"
+                    if (responseContent.Contains("46FFE43A74AC2CAF593E9DCEAB229"))
+                    {
+                        await DisplayAlert("Login Failed", "Invalid username or password.", "OK");
+                        usernameEntry.Text = "";
+                        passwordEntry.Text = "";
+                        usernameEntry.Focus();
+
+                        loadingLayout.IsVisible = false;
+                        return;
+                    }
                     // Parse the query string
                     string queryString = response.RequestMessage.RequestUri.Query;
                     Dictionary<string, string> queryParameters = HttpUtility.ParseQueryString(queryString)
@@ -60,12 +75,14 @@ namespace GetGoApp
 
                     // Navigate to the Home_Primary page
                     await Navigation.PushAsync(new Views.Home.Home_Primary());
+                    loadingLayout.IsVisible = false;
                 }
             }
             catch (Exception ex)
             {
                 // Handle exceptions and display an error message
                 await DisplayAlert("Error", ex.Message, "OK");
+                loadingLayout.IsVisible = false;
             }
         }
 
