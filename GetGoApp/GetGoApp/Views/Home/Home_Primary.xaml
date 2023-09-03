@@ -20,8 +20,7 @@
                         <TapGestureRecognizer Tapped="MenuImage_Tapped" />
                     </Image.GestureRecognizers>
                 </Image>
-                <!--<Button Text="Home" Clicked="HomeButton_Clicked" />
-                <Button Text="Menu" Clicked="MenuButton_Clicked" />-->
+              
             </StackLayout>
 
 
