@@ -17,12 +17,12 @@ namespace GetGoApp.Views.Home
 
         public Home_Primary()
         {
-
             InitializeComponent();
-
-            //webView.Source = new UrlWebViewSource { Url = $"http://192.168.1.3/GetGo/Views/UserApp/Home/Home_Default.aspx?USERID=APP230819017" };
-          InitializeContent();  
-
+            webView.Source = new UrlWebViewSource
+            {
+                Url = $"http://192.168.1.19/GetGo/Views/UserApp/Home/Home_Default.aspx?USERID=APP230819017"
+            };
+            //InitializeContent();  
         }
 
         private void InitializeContent()
@@ -51,6 +51,12 @@ namespace GetGoApp.Views.Home
                 }
             }
         }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
         private void WebView(string link, string input) => webView.Source = new UrlWebViewSource { Url = $"{link}/Views/UserApp/Home/Home_Default.aspx?{input}" };
         private void HomeImage_Tapped(object sender, EventArgs e) => Navigation.PushAsync(new Home_Primary());
 
