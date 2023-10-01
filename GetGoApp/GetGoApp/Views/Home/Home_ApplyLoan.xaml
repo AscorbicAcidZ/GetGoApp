@@ -3,22 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="GetGoApp.Views.Home.Home_ApplyLoan">
     <NavigationPage.TitleView>
-        <Label Text="Apply Loan" HorizontalOptions="Center"
-                   VerticalOptions="CenterAndExpand"
+        <Label Text="Apply Loan" HorizontalOptions="Start"
+                   VerticalOptions="Start"
                    FontAttributes="Bold"
                    FontSize="16"
                TextColor="Black"/>
     </NavigationPage.TitleView>
     <ContentPage.Content>
-        <AbsoluteLayout>
-
-            <ActivityIndicator x:Name="loadingIndicator" 
-                           Color="Black" 
-                           AbsoluteLayout.LayoutBounds=".5,.5, 100, 100"
-                           AbsoluteLayout.LayoutFlags="PositionProportional"
-                               IsVisible="false"
-                               IsRunning="False"/>
-
+     
             <Grid x:Name="GridContent" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="3"  BackgroundColor="#bcf4e4">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"></RowDefinition>
@@ -28,8 +20,6 @@
                 <WebView  Grid.Row="0" x:Name="webView" HeightRequest="650"  />
                 <Button  Grid.Row="1" x:Name="PrimaryButton" Text="Proceed"  TextColor="White" BackgroundColor="#1C375C" CornerRadius="10" Clicked="PrimaryButton_Clicked"  />
             </Grid>
-        </AbsoluteLayout>
-
-
+   
     </ContentPage.Content>
 </ContentPage>

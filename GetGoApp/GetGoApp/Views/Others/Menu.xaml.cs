@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GetGoApp.Views.Home;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,17 +17,9 @@ namespace GetGoApp.Views
 		{
 			InitializeComponent ();
 		}
-        private void HomeButton_Clicked(object sender, EventArgs e)
-        {
+        private void HomeImage_Tapped(object sender, EventArgs e) => Navigation.PushAsync(new Home_Primary());
 
-            var Name = "";
-            Navigation.PushAsync(new Views.Home.Home_Primary());
-        }
-    
-        private void MenuButton_Clicked(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new Views.Menu());
-        }
+        private void MenuImage_Tapped(object sender, EventArgs e) => Navigation.PushAsync(new Menu());
         private void Profile_Clicked(object sender, EventArgs e)
         {
             var Name = "";

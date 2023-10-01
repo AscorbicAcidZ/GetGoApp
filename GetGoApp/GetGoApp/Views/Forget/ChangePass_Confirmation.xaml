@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GetGoApp.Views.Forget.ChangePass_Confirmation"
+      NavigationPage.HasNavigationBar="False"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="#bcf4e4">
+    <ContentPage.Content>
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="20">
+            <Grid.RowDefinitions>
+                <!--<RowDefinition Height="*"></RowDefinition>-->
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Image Grid.Row="0" Source="success.png" Aspect="AspectFit"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></Image>
+            <Button  Grid.Row="1"  Text="Back To Login" Clicked="Button_Clicked"  TextColor="White" BackgroundColor="#2B9348" CornerRadius="10" HeightRequest="20"  />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

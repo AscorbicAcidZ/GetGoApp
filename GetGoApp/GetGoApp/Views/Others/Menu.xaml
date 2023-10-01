@@ -7,14 +7,43 @@
              BackgroundColor="#bcf4e4">
     <ContentPage.Content>
         <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
-            <StackLayout Orientation="Vertical" HeightRequest="600">
-                <Button Text="Profile" Clicked="Profile_Clicked" />
-                <Button Text="Notifications" Clicked="Notifications_Clicked" />
-                <Button Text="Loan History" Clicked="LoanHistory_Clicked" />
+            <StackLayout Orientation="Horizontal" Spacing="10"  BackgroundColor="#bcf4e4" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
+                <Image Source="Profile.png" HeightRequest="30" Aspect="AspectFit">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="HomeImage_Tapped" />
+                    </Image.GestureRecognizers>
+                </Image>
+
+                <Image Source="LoanHistory.png" HeightRequest="30" Aspect="AspectFit" >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="MenuImage_Tapped" />
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Source="Notifications.png" HeightRequest="30" Aspect="AspectFit" >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="MenuImage_Tapped" />
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Source="Settings.png" HeightRequest="30" Aspect="AspectFit" >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="MenuImage_Tapped" />
+                    </Image.GestureRecognizers>
+                </Image>
+
             </StackLayout>
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                <Button Text="Home" Clicked="HomeButton_Clicked" />
-                <Button Text="Menu" Clicked="MenuButton_Clicked" />
+            <StackLayout Orientation="Horizontal" Spacing="10"  BackgroundColor="#bcf4e4" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
+                <Image Source="home.png" HeightRequest="60" Aspect="AspectFit">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="HomeImage_Tapped" />
+                    </Image.GestureRecognizers>
+                </Image>
+
+                <Image Source="menu.png" HeightRequest="60" Aspect="AspectFit" >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="MenuImage_Tapped" />
+                    </Image.GestureRecognizers>
+                </Image>
+
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

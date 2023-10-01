@@ -7,16 +7,15 @@
              BackgroundColor="#bcf4e4">
     <ContentPage.Content>
         <StackLayout>
-            <WebView x:Name="webView" HeightRequest="700" />
+            <WebView x:Name="webView" HeightRequest="630" />
 
-            <StackLayout Orientation="Horizontal" Spacing="10"  BackgroundColor="#bcf4e4" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
-                <Button  Text="Pay Loan" HeightRequest="60" WidthRequest="150" TextColor="White" BackgroundColor="DarkRed" CornerRadius="10"  />
-                <Button  Text="Apply Loan" x:Uid="btnApply" Clicked="Button_Clicked" HeightRequest="60" WidthRequest="150" TextColor="White" BackgroundColor="#1C375C" CornerRadius="10"  />
-        
-
+            <StackLayout Orientation="Horizontal" Spacing="6"  BackgroundColor="#bcf4e4" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
+                <Button  Text="Repayment" x:Uid="Repayment" HeightRequest="50"  TextColor="White" BackgroundColor="DarkRed" CornerRadius="10" Clicked="Button_Clicked"  />
+                <Button  Text="Apply Loan" x:Uid="btnApply" Clicked="Apply_Clicked" HeightRequest="50" TextColor="White" BackgroundColor="#1C375C" CornerRadius="10"  />
+                <Button  Text="Withdrawal"  HeightRequest="50" TextColor="White" BackgroundColor="Green" CornerRadius="10"  />
             </StackLayout>
 
-            <StackLayout Orientation="Horizontal" Spacing="10"  BackgroundColor="#bcf4e4" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
+            <StackLayout Orientation="Horizontal" Spacing="30"  BackgroundColor="#bcf4e4" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
                 <Image Source="home.png" HeightRequest="60" Aspect="AspectFit">
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Tapped="HomeImage_Tapped" />

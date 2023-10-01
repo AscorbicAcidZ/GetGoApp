@@ -17,14 +17,16 @@ namespace GetGoApp.Views.Profile
         public Confirmation()
         {
             InitializeComponent();
-            
+            link = AppData.Instance.Link;
+            signupDetails = AppData.Instance.SignupDetails;
+
         }
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            link = AppData.Instance.Link;
-            signupDetails = AppData.Instance.SignupDetails;
-        
+
+             AppData.Instance.Link = link;
+            AppData.Instance.SignupDetails = signupDetails;
             await Navigation.PushAsync(new Home.Home_Primary());
         }
     }
