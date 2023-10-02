@@ -19,37 +19,41 @@ namespace GetGoApp.Views.Home
         public Home_ApplyLoan()
         {
             InitializeComponent();
-            //webView.Source = new UrlWebViewSource
-            //{
-            //    Url = $"http://192.168.1.8/GetGo/Views/UserApp/Home/ApplyLoan.aspx?USERID=APP230924001"
-            //};
             InitializeContent();
         }
         private void InitializeContent()
         {
-            Details = AppData.Instance.Details;
-            signupDetails = AppData.Instance.Details;
-            if (!string.IsNullOrEmpty(Details))
+            try
             {
-                string[] detailsArray = Details.Split('|');
-                if (detailsArray.Length >= 2)
+                Details = AppData.Instance.Details;
+                signupDetails = AppData.Instance.Details;
+                if (!string.IsNullOrEmpty(Details))
                 {
-                    link = detailsArray[0];
-                    userId = detailsArray[1].Replace(":", "=");
-                    WebView(link, userId);
+                    string[] detailsArray = Details.Split('|');
+                    if (detailsArray.Length >= 2)
+                    {
+                        link = detailsArray[0];
+                        userId = detailsArray[1].Replace(":", "=");
+                        WebView(link, userId);
+                    }
                 }
-            }
-            else if (!string.IsNullOrEmpty(signupDetails))
-            {
-                string[] detailsArray = Details.Split('|');
-                if (detailsArray.Length >= 2)
+                else if (!string.IsNullOrEmpty(signupDetails))
                 {
-                    link = detailsArray[0];
-                    userId = detailsArray[1];
-                    WebView(link, userId);
+                    string[] detailsArray = Details.Split('|');
+                    if (detailsArray.Length >= 2)
+                    {
+                        link = detailsArray[0];
+                        userId = detailsArray[1];
+                        WebView(link, userId);
 
+                    }
                 }
             }
+            catch(Exception ex) {
+                throw ex;
+            }
+          
+          
         }
         private void WebView(string link, string input) => webView.Source = new UrlWebViewSource { Url = $"{link}/Views/UserApp/Home/ApplyLoan.aspx?{input}" };
         private void PrimaryButton_Clicked(object sender, EventArgs e)

@@ -14,22 +14,24 @@ namespace GetGoApp.Views.Home
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Home_Primary : ContentPage
     {
-        private string link, signupDetails, Details, userId;
+        private string link, Details, userId;
 
         public Home_Primary()
         {
             InitializeComponent();
-            //webView.Source = new UrlWebViewSource
-            //{
-            //    //Url = $"http://192.168.1.8/GetGo/Views/UserApp/Home/Home_Default.aspx?USERID=APP230924001"
-            //};
+            Initialize();
             InitializeContent();
+        }
+        private void Initialize()
+        {
+            Details = AppData.Instance.Details;
+
+            // Your initialization logic here...
         }
 
         private void InitializeContent()
         {
-            Details = AppData.Instance.Details;
-            signupDetails = AppData.Instance.Details;
+
             if (!string.IsNullOrEmpty(Details))
             {
                 string[] detailsArray = Details.Split('|');
@@ -40,17 +42,11 @@ namespace GetGoApp.Views.Home
                     WebView(link, userId);
                 }
             }
-            else if (!string.IsNullOrEmpty(signupDetails))
+            else
             {
-                string[] detailsArray = Details.Split('|');
-                if (detailsArray.Length >= 2)
-                {
-                    link = detailsArray[0];
-                    userId = detailsArray[1];
-                    WebView(link, userId);
-
-                }
+                DisplayAlert("URL GOT LOST", "ERROR","OK");
             }
+         
         }
 
         private async void Apply_Clicked(object sender, EventArgs e)
@@ -84,8 +80,7 @@ namespace GetGoApp.Views.Home
 
 
                     AppData.Instance.Details = Details;
-                    AppData.Instance.Details = signupDetails;
-
+               
                     // Navigate to the Home_Primary page
                     await Navigation.PushAsync(new Home_ApplyLoan());
                     //loadingLayout.IsVisible = false;
@@ -106,8 +101,18 @@ namespace GetGoApp.Views.Home
         {
             webView.EvaluateJavaScriptAsync("RepaymentModal();");
         }
+        private async void Withdraw_Clicked(object sender, EventArgs e)
+        {
+
+            AppData.Instance.Details = Details;
+
+            // Navigate to the Home_Primary page
+            await Navigation.PushAsync(new Home_Withdrawal());
+        }
+
 
         private void HomeImage_Tapped(object sender, EventArgs e) => Navigation.PushAsync(new Home_Primary());
+
 
         private void MenuImage_Tapped(object sender, EventArgs e) => Navigation.PushAsync(new Menu());
 

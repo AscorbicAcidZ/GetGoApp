@@ -12,7 +12,7 @@
             <StackLayout Orientation="Horizontal" Spacing="6"  BackgroundColor="#bcf4e4" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
                 <Button  Text="Repayment" x:Uid="Repayment" HeightRequest="50"  TextColor="White" BackgroundColor="DarkRed" CornerRadius="10" Clicked="Button_Clicked"  />
                 <Button  Text="Apply Loan" x:Uid="btnApply" Clicked="Apply_Clicked" HeightRequest="50" TextColor="White" BackgroundColor="#1C375C" CornerRadius="10"  />
-                <Button  Text="Withdrawal"  HeightRequest="50" TextColor="White" BackgroundColor="Green" CornerRadius="10"  />
+                <Button  Text="Withdrawal"  HeightRequest="50" TextColor="White" BackgroundColor="Green" CornerRadius="10"  Clicked="Withdraw_Clicked" />
             </StackLayout>
 
             <StackLayout Orientation="Horizontal" Spacing="30"  BackgroundColor="#bcf4e4" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
