@@ -68,7 +68,11 @@
                     </Frame>
 
 
-                    <Label Grid.Row="5" Text="Forget Password?" FontAttributes="Bold" HorizontalOptions="End" TextColor="#1b5b6b"></Label>
+                    <Label Grid.Row="5" Text="Forgot Password?" FontAttributes="Bold" HorizontalOptions="End" TextColor="#1b5b6b">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer x:Uid="ChangePass" Tapped="ChangePass_Tapped" />
+                        </Label.GestureRecognizers>
+                    </Label>
                     <StackLayout Grid.Row="6" Orientation="Vertical" HorizontalOptions="CenterAndExpand">
                         <Image Source="fingerprint.png" Aspect="AspectFit" HeightRequest="50" WidthRequest="50"></Image>
                         <Label TextColor="#1b5b6b" Text="Biometrics Login"></Label>

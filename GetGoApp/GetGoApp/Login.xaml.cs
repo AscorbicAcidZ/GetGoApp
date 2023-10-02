@@ -1,5 +1,6 @@
 ﻿using GetGoApp.Class;
 using GetGoApp.Views;
+using GetGoApp.Views.Forget;
 using GetGoApp.Views.Signup;
 using System;
 using System.Collections.Generic;
@@ -115,6 +116,11 @@ namespace GetGoApp
         private async void SignUpLabel_Tapped(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Signup_Primary());
+        }
+
+        private async void ChangePass_Tapped(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Forgot_Password());
         }
     }
 }
