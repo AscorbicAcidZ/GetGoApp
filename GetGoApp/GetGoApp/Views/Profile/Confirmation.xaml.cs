@@ -1,4 +1,5 @@
 ﻿using GetGoApp.Class;
+using GetGoApp.Views.Home;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,21 +14,25 @@ namespace GetGoApp.Views.Profile
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Confirmation : ContentPage
     {
-        private string link, signupDetails, Details;
+        private string link, signupDetails;
         public Confirmation()
         {
             InitializeComponent();
-            link = AppData.Instance.Link;
-            signupDetails = AppData.Instance.SignupDetails;
-
         }
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
 
-             AppData.Instance.Link = link;
-            AppData.Instance.SignupDetails = signupDetails;
-            await Navigation.PushAsync(new Home.Home_Primary());
+            try
+            {
+                await Navigation.PushAsync(new Login());
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+
         }
     }
 }

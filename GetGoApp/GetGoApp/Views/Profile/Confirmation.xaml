@@ -14,7 +14,7 @@
             </Grid.RowDefinitions>
 
             <Image Grid.Row="0" Source="success.png" Aspect="AspectFit"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></Image>
-            <Button  Grid.Row="1"  Text="Back To Home Page" Clicked="Button_Clicked"  TextColor="White" BackgroundColor="#2B9348" CornerRadius="10" HeightRequest="20"  />
+            <Button  Grid.Row="1"  Text="Click Here to Login" Clicked="Button_Clicked"  TextColor="White" BackgroundColor="#2B9348" CornerRadius="10" HeightRequest="20"  />
         </Grid>
     </ContentPage.Content>
 </ContentPage>
