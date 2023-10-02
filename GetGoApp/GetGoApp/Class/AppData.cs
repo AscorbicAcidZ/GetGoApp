@@ -19,9 +19,18 @@ namespace GetGoApp.Class
         {
             get
             {
-                if (_instance == null)
-                    _instance = new AppData();
-                return _instance;
+                try
+                {
+                    if (_instance == null)
+                        _instance = new AppData();
+                    return _instance;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Exception: {ex}");
+                    throw;
+                }
+               
             }
         }
     }
