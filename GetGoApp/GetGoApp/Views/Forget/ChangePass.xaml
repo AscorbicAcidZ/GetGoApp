@@ -4,7 +4,7 @@
              x:Class="GetGoApp.Views.Forget.ChangePass">
 
     <NavigationPage.TitleView>
-        <Label Text="Change Password" HorizontalOptions="Center"
+        <Label Text="Change Password" HorizontalOptions="StartAndExpand"
                    VerticalOptions="CenterAndExpand"
                    FontAttributes="Bold"
                    FontSize="16"
@@ -13,12 +13,12 @@
     <ContentPage.Content>
         <AbsoluteLayout>
 
-            <ActivityIndicator x:Name="loadingIndicator" 
+            <!--<ActivityIndicator x:Name="loadingIndicator" 
                            Color="Black" 
                            AbsoluteLayout.LayoutBounds=".5,.5, 100, 100"
                            AbsoluteLayout.LayoutFlags="PositionProportional"
                                IsVisible="false"
-                               IsRunning="False"/>
+                               IsRunning="False"/>-->
 
             <Grid x:Name="GridContent" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="3"  BackgroundColor="#bcf4e4">
                 <Grid.RowDefinitions>

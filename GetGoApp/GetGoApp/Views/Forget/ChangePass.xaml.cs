@@ -22,16 +22,16 @@ namespace GetGoApp.Views.Forget
             {
                 InitializeComponent();
 
-                link = "http://192.168.1.19/GetGo";
-                weblink = $"{link}/Views/UserApp/Signup/Change_Password.aspx";
+                link = AppData.Instance.Link;
+                //weblink = $"{link}/Views/UserApp/Signup/Change_Password.aspx";
                 if (!string.IsNullOrEmpty(link))
                 {
                     webView.Source = new UrlWebViewSource { Url = $"{link}/Views/UserApp/Signup/Change_Password.aspx" };
                     PrimaryButton.Text = "Proceed";
                 }
                 // Attach event handlers for WebView navigation
-                webView.Navigating += OnWebViewNavigating;
-                webView.Navigated += OnWebViewNavigated;
+                //webView.Navigating += OnWebViewNavigating;
+                //webView.Navigated += OnWebViewNavigated;
 
             }
             catch (Exception ex)
@@ -41,44 +41,13 @@ namespace GetGoApp.Views.Forget
             }
 
         }
-        private void OnWebViewNavigating(object sender, WebNavigatingEventArgs e)
-        {
-            // Show the activity indicator when WebView is navigating
-            loadingIndicator.IsRunning = true;
-            loadingIndicator.IsVisible = true;
-            GridContent.IsVisible = false;
-        }
-
-        private void OnWebViewNavigated(object sender, WebNavigatedEventArgs e)
-        {
-
-            // Hide the activity indicator when WebView navigation is complete
-            loadingIndicator.IsRunning = false;
-            loadingIndicator.IsVisible = false;
-            GridContent.IsVisible = true;
-        }
         private async void WebView_Navigated(object sender, WebNavigatedEventArgs e)
         {
             // Check if the navigation was successful and the URL is not null or empty
             if (e.Result == WebNavigationResult.Success && !string.IsNullOrEmpty(e.Url))
-            {
-                if (e.Url.Contains("?RESPONSE=Success"))
-                {
-                    PrimaryButton.Text = "Verify";
-                    //PrimaryButton.TextColor = Color.White;
-                    await DisplayAlert("Success", "Please input your verification code", "OK");
-                    //await Navigation.PushAsync(new Profile_Primary());
-                    // Do something with the query string values here...
-                }
-                else if (e.Url.Contains("?RESPONSE=Verified"))
-                {
-                  
-                }
-                else
-                {
-                    await DisplayAlert("Error", "Please Try Again!", "OK");
-                }
-   
+            {      
+                    await Navigation.PushAsync(new ChangePass_Confirmation());
+                         
             }
             else
             {
@@ -86,19 +55,12 @@ namespace GetGoApp.Views.Forget
             }
         }
 
-        private void PrimaryButton_Clicked(object sender, EventArgs e)
+        private async void PrimaryButton_Clicked(object sender, EventArgs e)
         {
-            if (PrimaryButton.Text == "Proceed")
-            {
-                webView.EvaluateJavaScriptAsync("GetUserID();");
-                webView.Navigated += WebView_Navigated;
-            }
-            else
-            {
-                PrimaryButton.IsEnabled = false;
-            }
 
-
+            await webView.EvaluateJavaScriptAsync("Save();");
+            webView.Navigated += WebView_Navigated;
         }
     }
 }
+    
