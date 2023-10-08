@@ -57,6 +57,7 @@ namespace GetGoApp.Views.Home
             else
             {
                 Navigation.PushAsync(new Home_Primary());
+                Navigation.RemovePage(this);
             }
 
         }

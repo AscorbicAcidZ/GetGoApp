@@ -1,5 +1,7 @@
 ﻿
 
+using GetGoApp.Views.Home;
+using GetGoApp.Views.Others;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;

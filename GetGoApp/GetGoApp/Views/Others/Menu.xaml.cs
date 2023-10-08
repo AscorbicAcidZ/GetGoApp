@@ -1,5 +1,6 @@
 ﻿using GetGoApp.Class;
 using GetGoApp.Views.Home;
+using GetGoApp.Views.Others;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,7 +43,7 @@ namespace GetGoApp.Views
         }
         private void WebView(string link, string input) => webView.Source = new UrlWebViewSource { Url = $"{link}/Views/UserApp/Menu/Menu.aspx?{input}" };
         private void HomeImage_Tapped(object sender, EventArgs e) => Navigation.PushAsync(new Home_Primary());
-        private void Settings_Tapped(object sender, EventArgs e) => Navigation.PushAsync(new Home_Primary());
+        private void Settings_Tapped(object sender, EventArgs e) => Navigation.PushAsync(new Settings());
         private void MenuImage_Tapped(object sender, EventArgs e) => Navigation.PushAsync(new Menu());
        
     }

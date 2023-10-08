@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="GetGoApp.Views.Menu"
-               NavigationPage.HasBackButton="False"
+             NavigationPage.HasBackButton="False"
              NavigationPage.HasNavigationBar="True"
              BackgroundColor="#bcf4e4">
 
@@ -10,10 +10,10 @@
         <StackLayout Orientation="Horizontal">
             <Image Source="getgo_rectangle"
                    VerticalOptions="CenterAndExpand"
-                   HorizontalOptions="StartAndExpand" WidthRequest="100"  HeightRequest="80"/>
+                   HorizontalOptions="StartAndExpand" WidthRequest="100" HeightRequest="80"/>
 
             <Image Source="logo_settings"
-                   VerticalOptions="CenterAndExpand"  WidthRequest="100"  HeightRequest="50" 
+                   VerticalOptions="CenterAndExpand" WidthRequest="100" HeightRequest="50"
                    HorizontalOptions="EndAndExpand" >
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer Tapped="Settings_Tapped" />
@@ -23,25 +23,21 @@
     </NavigationPage.TitleView>
     <ContentPage.Content>
         <StackLayout>
-            <WebView x:Name="webView" HeightRequest="630" />
+            <WebView x:Name="webView" HeightRequest="1000" VerticalOptions="FillAndExpand" />
 
-
-            <StackLayout Orientation="Horizontal" Spacing="30"  BackgroundColor="#bcf4e4" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
+            <StackLayout Orientation="Horizontal" Spacing="30" BackgroundColor="#bcf4e4" VerticalOptions="End" HorizontalOptions="CenterAndExpand">
                 <Image Source="home.png" HeightRequest="60" Aspect="AspectFit">
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Tapped="HomeImage_Tapped" />
                     </Image.GestureRecognizers>
                 </Image>
 
-                <Image Source="menu.png" HeightRequest="60" Aspect="AspectFit" >
+                <Image Source="menu.png" HeightRequest="60" Aspect="AspectFit">
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Tapped="MenuImage_Tapped" />
                     </Image.GestureRecognizers>
                 </Image>
-
             </StackLayout>
-
-
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

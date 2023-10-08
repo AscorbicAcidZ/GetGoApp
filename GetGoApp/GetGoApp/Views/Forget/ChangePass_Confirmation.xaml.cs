@@ -23,8 +23,9 @@ namespace GetGoApp.Views.Forget
         }
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            link = AppData.Instance.Link;
+           
             await Navigation.PushAsync(new Login());
+            Navigation.RemovePage(this);
         }
     }
 }

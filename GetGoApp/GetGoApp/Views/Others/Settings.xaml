@@ -1,12 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="GetGoApp.Views.Others.Settings">
-    <ContentPage.Content>
+             x:Class="GetGoApp.Views.Others.Settings" BackgroundColor="#bcf4e4" NavigationPage.HasNavigationBar="True">
+
+    <NavigationPage.TitleView>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label Text="Settings" TextColor="Black" HorizontalTextAlignment="Center" FontSize="20" Margin="0, 0, 75, 0" />
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <StackLayout HeightRequest="800" Padding="10">
+            <Button  Text="Change Password" TextColor="Black" BackgroundColor="White" CornerRadius="10" Clicked="Forgot_Clicked" ></Button>
+            <Button  Text="About Us" TextColor="Black" BackgroundColor="White" CornerRadius="10" Clicked="AboutUs_Clicked" ></Button>
+            <Button  Text="Biometrics" TextColor="Black" BackgroundColor="White" CornerRadius="10" ></Button>
+
+            <StackLayout  VerticalOptions="CenterAndExpand" >
+                <Button x:Uid="Logout"  Text="Logout" TextColor="White" BackgroundColor="Red" CornerRadius="10" Clicked="Logout_Clicked"  ></Button>
+
+            </StackLayout>
+
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
