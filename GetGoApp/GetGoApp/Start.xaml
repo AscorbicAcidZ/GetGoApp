@@ -38,7 +38,8 @@
                             FontSize="16"
                             VerticalOptions="CenterAndExpand"
                             Margin="5,0,5,0"
-                      x:Name="linkEntry" />
+                      x:Name="linkEntry"
+                        TextChanged="linkEntry_TextChanged"/>
                 </Frame>
                     <Button  Grid.Row="2"  Text="Next" TextColor="White" BackgroundColor="#1C375C" CornerRadius="10"   Clicked="Button_Clicked"></Button>
                 </Grid>
