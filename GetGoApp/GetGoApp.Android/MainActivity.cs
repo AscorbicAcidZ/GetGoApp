@@ -5,6 +5,7 @@ using Android.Content.PM;
 using Android.Runtime;
 using Android.OS;
 using Android.Views;
+using Plugin.Fingerprint;
 
 namespace GetGoApp.Droid
 {
@@ -16,6 +17,7 @@ namespace GetGoApp.Droid
             base.OnCreate(savedInstanceState);
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
+            CrossFingerprint.SetCurrentActivityResolver(()=> Xamarin.Essentials.Platform.CurrentActivity);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             Window.SetSoftInputMode(Android.Views.SoftInput.AdjustPan);
             LoadApplication(new App());

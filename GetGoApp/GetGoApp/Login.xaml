@@ -20,7 +20,11 @@
 
 
 
-            <Image Grid.Row="0" Source="AppLogo.png" Aspect="AspectFit" HeightRequest="499" VerticalOptions="CenterAndExpand"></Image>
+            <Image Grid.Row="0" Source="AppLogo.png" Aspect="AspectFit" HeightRequest="499" VerticalOptions="CenterAndExpand">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Start_Tapped"/>
+                </Image.GestureRecognizers>
+            </Image>
             <Frame Grid.Row="1" Margin="0,0" BorderColor="#bcf4e4" HasShadow="True" CornerRadius="10" Padding="10"  HeightRequest="10">
                 <Label Text="Welcome Back! Login to continue" FontSize="24" FontAttributes="Bold" TextColor="#1b5b6b" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"></Label>
             </Frame>
@@ -74,7 +78,11 @@
                         </Label.GestureRecognizers>
                     </Label>
                     <StackLayout Grid.Row="6" Orientation="Vertical" HorizontalOptions="CenterAndExpand">
-                        <Image Source="fingerprint.png" Aspect="AspectFit" HeightRequest="50" WidthRequest="50"></Image>
+                        <Image Source="fingerprint.png" Aspect="AspectFit" HeightRequest="50" WidthRequest="50">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Fingerprint_Tapped"/>
+                            </Image.GestureRecognizers>
+                        </Image>
                         <Label TextColor="#1b5b6b" Text="Biometrics Login"></Label>
                     </StackLayout>
 
