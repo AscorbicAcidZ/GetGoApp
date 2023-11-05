@@ -1,8 +1,8 @@
-﻿
-
+﻿using GetGoApp.Class;
 using GetGoApp.Views.Home;
 using GetGoApp.Views.Others;
 using System;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -13,8 +13,16 @@ namespace GetGoApp
         public App()
         {
             InitializeComponent();
-
-            MainPage = new NavigationPage(new Start());
+            string details = SecureStorage.GetAsync("userLink").Result;
+            if (details != null)
+            {
+                AppData.Instance.Link = details;
+                MainPage = new NavigationPage(new Login());
+            }
+            else
+            {
+                MainPage = new NavigationPage(new Start());
+            }
         }
 
         protected override void OnStart()

@@ -12,7 +12,7 @@
         <StackLayout HeightRequest="800" Padding="10">
             <Button  Text="Change Password" TextColor="Black" BackgroundColor="White" CornerRadius="10" Clicked="Forgot_Clicked" ></Button>
             <Button  Text="About Us" TextColor="Black" BackgroundColor="White" CornerRadius="10" Clicked="AboutUs_Clicked" ></Button>
-            <Button  Text="Biometrics" TextColor="Black" BackgroundColor="White" CornerRadius="10" ></Button>
+            <Button  Text="Biometrics" TextColor="Black" BackgroundColor="White" CornerRadius="10" x:Name="Biometrics" Clicked="Biometrics_Clicked" ></Button>
 
             <StackLayout  VerticalOptions="CenterAndExpand" >
                 <Button x:Uid="Logout"  Text="Logout" TextColor="White" BackgroundColor="Red" CornerRadius="10" Clicked="Logout_Clicked"  ></Button>

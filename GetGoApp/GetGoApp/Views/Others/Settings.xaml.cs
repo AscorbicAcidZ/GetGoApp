@@ -23,9 +23,8 @@ namespace GetGoApp.Views.Others
         {
             AppData.Instance.Details = null;
             AppData.Instance.UserId = null;
-            AppData.Instance.UserToken = null;
             AppData.Instance.SignupDetails = null;
-            await Navigation.PushAsync(new Start());
+            await Navigation.PushAsync(new Login());
             Navigation.RemovePage(this);
         }
         protected override bool OnBackButtonPressed()
@@ -37,6 +36,8 @@ namespace GetGoApp.Views.Others
         private  async void AboutUs_Clicked(object sender, EventArgs e) =>  await Navigation.PushAsync(new Others.AboutUs());
 
         private async void Forgot_Clicked(object sender, EventArgs e) => await Navigation.PushAsync(new Forgot_Password());
-      
+
+        private async void Biometrics_Clicked(object sender, EventArgs e) => await Navigation.PushAsync(new Fingerprint());
+ 
     }
 }
