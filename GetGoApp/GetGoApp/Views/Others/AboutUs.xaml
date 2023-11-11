@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="GetGoApp.Views.Others.AboutUs">
     <NavigationPage.TitleView>
-        <Label Text="Change Password" HorizontalOptions="StartAndExpand"
+        <Label Text="About us" HorizontalOptions="StartAndExpand"
                    VerticalOptions="CenterAndExpand"
                    FontAttributes="Bold"
                    FontSize="16"

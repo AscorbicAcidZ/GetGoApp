@@ -43,13 +43,14 @@ namespace GetGoApp.Views.Others
          
             string token = SecureStorage.GetAsync("biometricsToken").Result;
 
-            if (string.IsNullOrEmpty(token) || token == "default")
+            if (string.IsNullOrEmpty(token) || token == "default" || userId !=token)
             {
-                Disable.IsVisible = false;
-                Enable.IsVisible = true;
+                    Disable.IsVisible = false;
+                    Enable.IsVisible = true; 
             }
             else
             {
+               
                 Disable.IsVisible = true;
                 Enable.IsVisible = false;
             }

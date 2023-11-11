@@ -97,17 +97,88 @@ namespace GetGoApp.Views.Home
 
         private void WebView(string link, string input) => webView.Source = new UrlWebViewSource { Url = $"{link}/Views/UserApp/Home/Home_Default.aspx?{input}" };
 
-        private void Button_Clicked(object sender, EventArgs e)
+        private async void Button_Clicked(object sender, EventArgs e)
         {
-            webView.EvaluateJavaScriptAsync("RepaymentModal();");
+            string url = $"{link}/Views/UserApp/Home/Default.aspx?{userId}";
+            try
+            {
+                // Send the HTTP request
+                using (HttpClient httpClient = new HttpClient())
+                {
+                    HttpResponseMessage response = await httpClient.GetAsync(url);
+
+                    if (!response.IsSuccessStatusCode)
+                    {
+                        await DisplayAlert("Error", "Failed to connect to the server", "OK");
+
+                        return;
+                    }
+
+                    response.EnsureSuccessStatusCode();
+
+                    string responseContent = await response.Content.ReadAsStringAsync();
+
+                    // Check if the response content contains "Wrong pass"
+                    if (responseContent.Contains("46FFE43A74AC2CAF593E9DCEAB229"))
+                    {
+                        await DisplayAlert("Alert", "Not verfied yet, Please wait for verification. Thank you!", "Go Back");
+                        return;
+                    }
+
+
+                   await webView.EvaluateJavaScriptAsync("RepaymentModal();");
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions and display an error message
+                await DisplayAlert("Error", ex.Message, "OK");
+                //loadingLayout.IsVisible = false;
+            }
+           
         }
         private async void Withdraw_Clicked(object sender, EventArgs e)
         {
+            string url = $"{link}/Views/UserApp/Home/Default.aspx?{userId}";
+            try
+            {
+                // Send the HTTP request
+                using (HttpClient httpClient = new HttpClient())
+                {
+                    HttpResponseMessage response = await httpClient.GetAsync(url);
 
-            AppData.Instance.Details = Details;
+                    if (!response.IsSuccessStatusCode)
+                    {
+                        await DisplayAlert("Error", "Failed to connect to the server", "OK");
 
-            // Navigate to the Home_Primary page
-            await Navigation.PushAsync(new Home_Withdrawal());
+                        return;
+                    }
+
+                    response.EnsureSuccessStatusCode();
+
+                    string responseContent = await response.Content.ReadAsStringAsync();
+
+                    // Check if the response content contains "Wrong pass"
+                    if (responseContent.Contains("46FFE43A74AC2CAF593E9DCEAB229"))
+                    {
+                        await DisplayAlert("Alert", "Not verfied yet, Please wait for verification. Thank you!", "Go Back");
+                        return;
+                    }
+
+
+                    AppData.Instance.Details = Details;
+
+                    // Navigate to the Home_Primary page
+                    await Navigation.PushAsync(new Home_Withdrawal());
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions and display an error message
+                await DisplayAlert("Error", ex.Message, "OK");
+                //loadingLayout.IsVisible = false;
+            }
+          
         }
 
 
